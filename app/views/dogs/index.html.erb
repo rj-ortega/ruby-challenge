@@ -1,1 +1,6 @@
-<%= render partial: 'thumbnail', collection: @dogs, as: :dog %>
+
+<%= will_paginate @dogs %>  
+    <% @dogs.each do |dog| %>
+       <%= render partial: 'thumbnail', object: dog, as: :dog %>    
+    <% end %>      
+<%= will_paginate @dogs %>
