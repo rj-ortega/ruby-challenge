@@ -1,6 +1,9 @@
-
-<%= will_paginate @dogs %>  
-    <% @dogs.each do |dog| %>
-       <%= render partial: 'thumbnail', object: dog, as: :dog %>    
-    <% end %>      
-<%= will_paginate @dogs %>
+    <%= will_paginate @dogs, :class => "paginate row justify-content-center"%>  
+        <div class="row">
+            <% @dogs.each do |dog| %>
+                <div class="col w-20">
+                    <%= render partial: 'thumbnail', object: dog, as: :dog %>    
+                </div>
+            <% end %>      
+        </div>
+    <%= will_paginate @dogs, :class => "paginate row justify-content-center" %>

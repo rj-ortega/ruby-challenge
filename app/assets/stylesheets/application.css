@@ -14,8 +14,26 @@
  *= require_self
  */
 
-header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+.carousel {
+  max-width: fit-content;
 }
+
+.carousel-item {
+    width: auto;
+    height: 600px;
+    max-height: 600px;
+}
+
+.paginate > *, form img {
+  padding: 0 5px;
+    padding: 0;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-img-top {
+  height: 300px;
+}
+
