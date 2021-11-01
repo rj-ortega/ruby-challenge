@@ -29,6 +29,10 @@
     padding: 0;
 }
 
+.card {
+  width: max-content;
+}
+
 .card-body {
   text-align: center;
 }
@@ -37,3 +41,6 @@
   height: 300px;
 }
 
+.paginate em, .paginate span, .paginate a {
+  margin-right: 3px;
+}

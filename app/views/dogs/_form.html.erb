@@ -1,8 +1,12 @@
 <%= simple_form_for @dog do |f| %>
   <%= f.input :name %>
   <%= f.input :description, as: :text %>
-  <%= f.input :image, as: :file %>
-
+  <%= f.file_field :images, multiple: true, accept: 'image/png, image/jpg, image/jpeg, image/gif' %>
+  <% if @dog.new_record? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% else %>
+    <%= f.collection_select :user_id, User.all, :id, :name, prompt: true, default: '' %>
+  <% end %>
   <% if @dog.images.any? %>
     <%= image_tag @dog.images.first %>
   <% end %>

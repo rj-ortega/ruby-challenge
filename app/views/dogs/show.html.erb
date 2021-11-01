@@ -28,7 +28,7 @@
         <% end %> 
       </div>
     <p><%= @dog.description %></p>
-
+    <p><%= @dog.user ? "Human: #{@dog.user.name}" : 'This dog is a free spirit, doesn\'t believe in having a human master' %></p>
     <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
     <br>
     <%= link_to "Delete #{@dog.name}'s Profile", dog_path, method: :delete, data: { confirm: 'Are you sure?' } %>

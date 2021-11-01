@@ -1,9 +1,20 @@
     <%= will_paginate @dogs, :class => "paginate row justify-content-center"%>  
         <div class="row">
-            <% @dogs.each do |dog| %>
-                <div class="col w-20">
+            <% @dogs.each_with_index do |dog, i| %>
+                <div class="col w-20 d-flex justify-content-center">
                     <%= render partial: 'thumbnail', object: dog, as: :dog %>    
                 </div>
+                <% if (i % 2 != 0) %>
+                    <div class="col w-20 d-flex justify-content-center">
+                        <a class="card">
+                            <%= image_tag url_for("/assets/ad.jpg"), class: "dog-photo card-img-top", alt: "Photo of Advertisement" %>
+                            <div class="card-body justify-content-center">
+                                <h5 class="dog-name"><%= "Get A New Collar Today!" %></h5>
+                                <h5 class="dog-name"><%= "Call 1-800-123-4567" %></h5>
+                            </div>
+                        </a>
+                    </div>            
+                <% end %>
             <% end %>      
         </div>
     <%= will_paginate @dogs, :class => "paginate row justify-content-center" %>
