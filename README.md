@@ -27,12 +27,17 @@ View the site at http://localhost:3000
   - Used `Will_Paginate` library
 - Add the ability ~~to~~ for a user to input multiple dog images on an edit form or new dog form ✅
   - Changed the input to a `file_field` instead of `input` field to enable multiple images to be selected
-- Associate dogs with owners
+- Associate dogs with owners ✅
   - Added DB migration with association and visual indication of the owner in the dog's show page
+  - Added name to User sign up and edit page
+  - Added edit page for user profiles in the nav bar
+  - Added dropdown to dog edit page to select user it belongs to
+  - Added User to dog on dog create
 - Allow users to like other dogs (not their own)
 - Allow sorting the index page by number of likes in the last hour
 - Display the ad.jpg image (saved at app/assets/images/ad.jpg) after every 2 dogs in the index page, to simulate advertisements in a feed ✅
-  - Added the collar image checking index of dogs in the each
+  - Added the collar image checking index of dogs in the each loop
+    ![Adds](./app/assets/images/adds.png "Adds")
 
 ##### Front End Devs
 
