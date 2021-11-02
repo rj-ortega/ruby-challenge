@@ -20,7 +20,18 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs  = Dog.paginate(:page => params[:page], :per_page=>5)
+    # I tried to accomplish this using solely active record like I would in MySql
+    # but after struggling for a while I decided to do the sort in code
+    if params[:sorted].present?
+      dogsWithLikes = Dog.all.each do | dog |
+        count = Like.where(['created_at > ? and dog_id = ? ', 1.hour.ago, dog.id]).count
+        dog.recent_likes = count > 0 ? count : 0
+      end
+      sortedDogs = dogsWithLikes.sort_by(&:recent_likes).reverse
+      @dogs = sortedDogs.paginate(:page => params[:page], :per_page=>5)
+    else
+      @dogs = Dog.paginate(:page => params[:page], :per_page=>5)
+    end
   end
 
   # GET /dogs/1
@@ -89,6 +100,6 @@ class DogsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def dog_params
-    params.require(:dog).permit(:name, :description, :images, :user_id)
+    params.require(:dog).permit(:name, :description, :images, :user_id, :sorted)
   end
 end

@@ -13,6 +13,7 @@
   <body>
     <div id="layout">
       <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <%# This link will reset the sort back to normal %>
         <h1><%= link_to 'Dog Profile Demo', root_path %></h1>
         <div class="actions ml-auto">
           <% if current_user %>
@@ -28,6 +29,7 @@
         </div>
       </header>
       <div id="main" class="container-fluid">
+        <p><%= link_to 'Trending Dogs', dogs_path(sorted: true) %> </p>    
         <div class="notifications">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>

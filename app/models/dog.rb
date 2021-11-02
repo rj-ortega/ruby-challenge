@@ -1,4 +1,5 @@
 class Dog < ApplicationRecord
+  attribute :recent_likes, :integer
   has_many_attached :images
   belongs_to :owner, optional: true, class_name: 'User', foreign_key: 'user_id'
   has_many :likes

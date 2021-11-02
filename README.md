@@ -40,7 +40,12 @@ View the site at http://localhost:3000
   - Added bootstrap icons library for the like heart
   - Added logic in the show page to prevent users from liking their own dog
   - Added a counter of likes for the dog show and index page
-- Allow sorting the index page by number of likes in the last hour
+- Allow sorting the index page by number of likes in the last hour ✅
+  - Added an attribute to dog to keep track of like counts
+  - Added sql query to count the likes dogs got within the last hour
+  - Added a link under the main title of the page to take you to a sorted index page
+    - It does this by sending a param to the index method
+  - Added an initializer so Will_Paginate will work on arrays
 - Display the ad.jpg image (saved at app/assets/images/ad.jpg) after every 2 dogs in the index page, to simulate advertisements in a feed ✅
   - Added the collar image checking index of dogs in the each loop
     ![Adds](./app/assets/images/adds.png "Adds")
