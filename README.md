@@ -33,7 +33,13 @@ View the site at http://localhost:3000
   - Added edit page for user profiles in the nav bar
   - Added dropdown to dog edit page to select user it belongs to
   - Added User to dog on dog create
-- Allow users to like other dogs (not their own)
+- Allow users to like other dogs (not their own) ✅
+  - Added like table to store dogs liked by users
+  - Created a like (post) and unlike (destroy) method in the dogs controller with corresponding routes
+    - A user that already likes a dog can only unlike
+  - Added bootstrap icons library for the like heart
+  - Added logic in the show page to prevent users from liking their own dog
+  - Added a counter of likes for the dog
 - Allow sorting the index page by number of likes in the last hour
 - Display the ad.jpg image (saved at app/assets/images/ad.jpg) after every 2 dogs in the index page, to simulate advertisements in a feed ✅
   - Added the collar image checking index of dogs in the each loop

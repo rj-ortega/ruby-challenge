@@ -44,3 +44,7 @@
 .paginate em, .paginate span, .paginate a {
   margin-right: 3px;
 }
+
+.like-counter {
+  font-size: medium;
+}

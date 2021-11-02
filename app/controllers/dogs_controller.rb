@@ -1,5 +1,21 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy, :like, :unlike]
+
+  def like
+    Like.create dog: @dog, user: current_user
+    respond_to do |format|
+      format.html { redirect_to @dog, notice: "You liked #{@dog.name}" }
+      format.json { render :show, status: :ok, location: @dog }
+    end
+  end
+
+  def unlike
+    Like.find_by(dog: @dog, user: current_user).destroy
+    respond_to do |format|
+      format.html { redirect_to @dog, notice: "You unliked #{@dog.name}" }
+      format.json { render :show, status: :ok, location: @dog }
+    end
+  end
 
   # GET /dogs
   # GET /dogs.json

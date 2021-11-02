@@ -1,6 +1,17 @@
 <div class="row justify-content-center">
   <div class="col-6">
-    <h2><%= @dog.name %></h2>
+    <h2>
+      <%= @dog.name %>
+      <% if @dog.owner == current_user %>
+        <i class="bi bi-heart text-danger"></i> <span class="like-counter text-danger"><%= @dog.likes.count%></span>
+      <% elsif current_user.likes.pluck(:dog_id).include? @dog.id %>
+        <%= link_to '<i class="bi bi-heart-fill text-danger"></i>'.html_safe, dog_unlike_path(@dog), method: :delete %>
+        <span class="like-counter text-danger"><%= @dog.likes.count%></span>
+      <% else %>
+        <%= link_to '<i class="bi bi-heart text-danger"></i>'.html_safe, dog_like_path(@dog), method: :post %>
+        <span class="like-counter text-danger"><%= @dog.likes.count%></span>
+      <% end %>
+    </h2>
       <div id="dogCarousel" class="carousel slide" data-interval="4000" data-ride="carousel">
         <% if @dog.images[1] %>
           <ol class="carousel-indicators">
@@ -28,7 +39,7 @@
         <% end %> 
       </div>
     <p><%= @dog.description %></p>
-    <p><%= @dog.user ? "Human: #{@dog.user.name}" : 'This dog is a free spirit, doesn\'t believe in having a human master' %></p>
+    <p><%= @dog.owner ? "Human: #{@dog.owner.name}" : 'This dog is a free spirit, doesn\'t believe in having a human master' %></p>
     <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
     <br>
     <%= link_to "Delete #{@dog.name}'s Profile", dog_path, method: :delete, data: { confirm: 'Are you sure?' } %>
