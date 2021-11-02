@@ -1,6 +1,8 @@
 <a class="card" href="<%= url_for(dog) %>">
   <%= image_tag url_for(dog.images.first), class: "dog-photo card-img-top", alt: "Photo of #{dog.name}" %>
-  <div class="card-body justify-content-center">
+  <div class="card-body">
     <h5 class="dog-name"><%= dog.name %></h5>
+    <i class="bi bi-heart-fill text-danger"></i>
+    <span class="like-counter text-danger"><%= dog.likes.count%></span>
   </div>
 </a>

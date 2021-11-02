@@ -39,7 +39,7 @@ View the site at http://localhost:3000
     - A user that already likes a dog can only unlike
   - Added bootstrap icons library for the like heart
   - Added logic in the show page to prevent users from liking their own dog
-  - Added a counter of likes for the dog
+  - Added a counter of likes for the dog show and index page
 - Allow sorting the index page by number of likes in the last hour
 - Display the ad.jpg image (saved at app/assets/images/ad.jpg) after every 2 dogs in the index page, to simulate advertisements in a feed ✅
   - Added the collar image checking index of dogs in the each loop
